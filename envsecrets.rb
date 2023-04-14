@@ -5,20 +5,20 @@
 class Envsecrets < Formula
   desc "CLI-first management of your environment secrets."
   homepage "https://envsecrets.com"
-  version "0.1.1"
+  version "0.1.3"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/envsecrets/cli/releases/download/v0.1.1/cli_0.1.1_darwin_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "a20a9622d105f66b21ae2d199a539d85c2238f7dd6e0ff69f2c664726b175349"
+      url "https://github.com/envsecrets/cli/releases/download/v0.1.3/cli_0.1.3_darwin_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "d011fc290f04cc4f94e2bdb6054c1c7c6d496584efaf9635369245591f8ab84d"
 
       def install
         bin.install "envsecrets"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/envsecrets/cli/releases/download/v0.1.1/cli_0.1.1_darwin_amd64.tar.gz", using: CurlDownloadStrategy
-      sha256 "954c4edeb4a46ac0c254390d4df0e979ec0586faaa7d30353dae723319420e9b"
+      url "https://github.com/envsecrets/cli/releases/download/v0.1.3/cli_0.1.3_darwin_amd64.tar.gz", using: CurlDownloadStrategy
+      sha256 "a066e5a7714ae06f5df5801d54dc9cde7ecc9d17aad7efd07c42187128f5789f"
 
       def install
         bin.install "envsecrets"
@@ -27,17 +27,17 @@ class Envsecrets < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/envsecrets/cli/releases/download/v0.1.1/cli_0.1.1_linux_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "2387b0ba9b606254484319d137aab40e9e0e8e26db186fb4e0cf170f909f9613"
+    if Hardware::CPU.intel?
+      url "https://github.com/envsecrets/cli/releases/download/v0.1.3/cli_0.1.3_linux_amd64.tar.gz", using: CurlDownloadStrategy
+      sha256 "c01f9a943581d6cca3cfc7e4d57192b47c04e271055d807c88fe29501b8db18d"
 
       def install
         bin.install "envsecrets"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/envsecrets/cli/releases/download/v0.1.1/cli_0.1.1_linux_amd64.tar.gz", using: CurlDownloadStrategy
-      sha256 "a3f77a02b5c9a327b4e39dace2b9b2f5dfbf57bf860af5528cc42982bd7f6b45"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/envsecrets/cli/releases/download/v0.1.3/cli_0.1.3_linux_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "5380b66c30f132e1b12a634e9f4183187f6d94d27f6b99404f3f90d83740e303"
 
       def install
         bin.install "envsecrets"
