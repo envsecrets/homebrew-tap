@@ -5,29 +5,39 @@
 class Envs < Formula
   desc "CLI-first management of your environment secrets."
   homepage "https://envsecrets.com"
-  version "0.1.4"
+  version "0.1.5"
 
   on_macos do
-    url "https://github.com/envsecrets/cli/releases/download/v0.1.4/cli_0.1.4_darwin_all.tar.gz", using: CurlDownloadStrategy
-    sha256 "a4f8fe6b447e5ae23d47a558da8b12b320585ce428fe06049063763a8f1b1689"
+    if Hardware::CPU.arm?
+      url "https://github.com/envsecrets/cli/releases/download/v0.1.5/cli_0.1.5_darwin_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "1848edeee2112fbc025c988acfd4135b6acc5820ce3999d91bf410c6c92f0fbe"
 
-    def install
-      bin.install "cli"
+      def install
+        bin.install "envs"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/envsecrets/cli/releases/download/v0.1.5/cli_0.1.5_darwin_amd64.tar.gz", using: CurlDownloadStrategy
+      sha256 "d1540bd76c3b587c35e916a7d2d7a01eff7a9e912d40ca9b12d33b0e3f51ac37"
+
+      def install
+        bin.install "envs"
+      end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/envsecrets/cli/releases/download/v0.1.4/cli_0.1.4_linux_amd64.tar.gz", using: CurlDownloadStrategy
-      sha256 "d17396535e05c27b9d5ac613097af7dd85b5b4f3ea31ff24c5f215b1182f44bc"
+      url "https://github.com/envsecrets/cli/releases/download/v0.1.5/cli_0.1.5_linux_amd64.tar.gz", using: CurlDownloadStrategy
+      sha256 "876ba629a12b86e44717069583c1284afbcac81c844fa0994ffdb7a66f817c2f"
 
       def install
         bin.install "envs"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/envsecrets/cli/releases/download/v0.1.4/cli_0.1.4_linux_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "b21ccca4b082a699c3d2eb3eaf57de756838146256f64210889f94a4f1e72cd3"
+      url "https://github.com/envsecrets/cli/releases/download/v0.1.5/cli_0.1.5_linux_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "6e0e29e6ac890a82ba2cea571132e168ed372c8c971414910085431f0f624fff"
 
       def install
         bin.install "envs"
