@@ -5,20 +5,20 @@
 class Envs < Formula
   desc "CLI-first management of your environment secrets."
   homepage "https://envsecrets.com"
-  version "0.1.7"
+  version "0.1.8"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/envsecrets/cli/releases/download/v0.1.7/cli_0.1.7_darwin_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "f3d90fea0cd94b6f2f99fd4adec12949824407f3ea18f8f61e41039d4b3902e9"
+      url "https://github.com/envsecrets/cli/releases/download/v0.1.8/cli_0.1.8_darwin_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "8e829c3fe95c1dab53ed5bb760fa695115b177323216821c19a542d4497e8ebe"
 
       def install
         bin.install "envs"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/envsecrets/cli/releases/download/v0.1.7/cli_0.1.7_darwin_amd64.tar.gz", using: CurlDownloadStrategy
-      sha256 "47cd41c6f94d2e82eb7033980f8c908dd0f4dbf9b5d1fb6353440af7789aea01"
+      url "https://github.com/envsecrets/cli/releases/download/v0.1.8/cli_0.1.8_darwin_amd64.tar.gz", using: CurlDownloadStrategy
+      sha256 "0ec3696a67f9e090778f3c1ee0950179cbacb353d65d7ec4dc1ff3d60d91b227"
 
       def install
         bin.install "envs"
@@ -27,17 +27,17 @@ class Envs < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/envsecrets/cli/releases/download/v0.1.7/cli_0.1.7_linux_amd64.tar.gz", using: CurlDownloadStrategy
-      sha256 "264f688e598ca017b97f641fe6e183141a2ccab0dab86516086679c78eb86e76"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/envsecrets/cli/releases/download/v0.1.8/cli_0.1.8_linux_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "03cfdd196b17f44b6e7eb0932492920782544f2d30abfe6f1fef6a831fd62f50"
 
       def install
         bin.install "envs"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/envsecrets/cli/releases/download/v0.1.7/cli_0.1.7_linux_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "81c33d946696608677e55b87f1b1aa5d658c340c5a42017aaf5c2b606da978ff"
+    if Hardware::CPU.intel?
+      url "https://github.com/envsecrets/cli/releases/download/v0.1.8/cli_0.1.8_linux_amd64.tar.gz", using: CurlDownloadStrategy
+      sha256 "bc9d927cc0d6a7549d4b16b7d0c65be7fd0070ec6203e98e997a7a18d7af6e34"
 
       def install
         bin.install "envs"
