@@ -5,20 +5,20 @@
 class Envs < Formula
   desc "CLI-first management of your environment secrets."
   homepage "https://envsecrets.com"
-  version "0.1.8"
+  version "1.0.11-alpha1"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/envsecrets/cli/releases/download/v0.1.8/cli_0.1.8_darwin_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "8e829c3fe95c1dab53ed5bb760fa695115b177323216821c19a542d4497e8ebe"
+      url "https://github.com/envsecrets/cli/releases/download/v1.0.11-alpha1/cli_1.0.11-alpha1_darwin_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "6940d5dcca5fe477a448ca41bd9447a834a4eac57ef94f406a036559c508fac4"
 
       def install
         bin.install "envs"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/envsecrets/cli/releases/download/v0.1.8/cli_0.1.8_darwin_amd64.tar.gz", using: CurlDownloadStrategy
-      sha256 "0ec3696a67f9e090778f3c1ee0950179cbacb353d65d7ec4dc1ff3d60d91b227"
+      url "https://github.com/envsecrets/cli/releases/download/v1.0.11-alpha1/cli_1.0.11-alpha1_darwin_amd64.tar.gz", using: CurlDownloadStrategy
+      sha256 "acf4c65ac83751aa3b5133e8e891f8e4a3b8f096e346b9b2ff52e8c8b55b1d35"
 
       def install
         bin.install "envs"
@@ -28,16 +28,16 @@ class Envs < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/envsecrets/cli/releases/download/v0.1.8/cli_0.1.8_linux_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "03cfdd196b17f44b6e7eb0932492920782544f2d30abfe6f1fef6a831fd62f50"
+      url "https://github.com/envsecrets/cli/releases/download/v1.0.11-alpha1/cli_1.0.11-alpha1_linux_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "300ccea144dd8ccc631258ed42e59c23357d159ae7a8f9d15947fecbf43b3136"
 
       def install
         bin.install "envs"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/envsecrets/cli/releases/download/v0.1.8/cli_0.1.8_linux_amd64.tar.gz", using: CurlDownloadStrategy
-      sha256 "bc9d927cc0d6a7549d4b16b7d0c65be7fd0070ec6203e98e997a7a18d7af6e34"
+      url "https://github.com/envsecrets/cli/releases/download/v1.0.11-alpha1/cli_1.0.11-alpha1_linux_amd64.tar.gz", using: CurlDownloadStrategy
+      sha256 "d1d7b109c47e31dfeb899e28035b0bbe5557a4949fb637bb48194dda2f0c6a11"
 
       def install
         bin.install "envs"
